@@ -1,5 +1,5 @@
 let display = document.getElementById("display");
-let display2 = document.getElementById("display2");
+let display1 = document.getElementById("display1");
 let currentOperation = null;
 let currentNumber = '';
 let previousNumber = '';
@@ -16,28 +16,38 @@ function clearDisplay() {
     previousNumber = '';
     currentOperation = null;
     display.value = currentNumber;
+    display1.value = '';
 }
 
 function deleteLast() {
     currentNumber = display.value.slice(0, -1);
     display.value = currentNumber;
+    
 
 }
-function selectOperation(operation) {
 
+function selectOperation(operation) {
     if (currentNumber === '') return;
     if (previousNumber !== '') {
-        calculate();
-    }
-    currentOperation = operation;
-    previousNumber = currentNumber;
-    currentNumber = '';
 
+        display.value = calculate();
+        currentNumber = '';
+        previousNumber = '';
+        currentOperation = operation;
+        previousNumber = display.value;
+    } else {
+        currentOperation = operation;
+        previousNumber = currentNumber;
+        currentNumber = '';
+    }
+    display1.value = currentOperation;
 }
+
 function calculate() {
-    let result;
+    let result = 0;
     const prev = parseFloat(previousNumber);
     const current = parseFloat(currentNumber);
+    
     switch (currentOperation) {
         case '+':
             result = prev + current;
@@ -51,12 +61,12 @@ function calculate() {
         case '/':
             result = prev / current;
             break;
-        default:
-            return;
     }
-    currentNumber = result;
-    currentOperation = null;
-    previousNumber = '';
-    display.value = currentNumber;
+    return result;
+}
+
+function displayResult() {
+    display.value = calculate();
+    previousNumber = calculate();
 }
 

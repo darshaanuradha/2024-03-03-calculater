@@ -11,7 +11,7 @@
         <div class="calculater">
             <div class="topic">CALCULATER</div>
             <div class="FullDisplay">
-                
+                <input type="text" id="display1" class="display1" disabled>
                 <input type="text" id="display" class="display" disabled>
             </div>
             
@@ -33,7 +33,7 @@
                 <div class="button" onclick="deleteLast()" style="font-size: 7px; font-weight: 900;">Del</div>
                 <div class="button" onclick="addNumber('0')">0</div>
                 <div class="button" onclick="addNumber('.')">.</div>
-                <div class="button" onclick="calculate()" style="grid-row:4/6; grid-column:4/4;">=</div>
+                <div class="button" onclick="displayResult()" style="grid-row:4/6; grid-column:4/4;">=</div>
             </div>
         </div>
     </div>

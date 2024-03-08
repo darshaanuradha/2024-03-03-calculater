@@ -70,7 +70,13 @@ input {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   text-shadow: none;
 }
-
+.FullDisplay{
+  display: flex;
+  flex-direction: row;
+}
+.display1{
+  width: 15px;
+}
 @media screen and (max-height: 410px) {
   body {
     background-color: rgb(95, 95, 95);
